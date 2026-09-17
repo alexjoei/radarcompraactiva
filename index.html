@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RCA — Radar de Compra Activa | AGZ Labs</title>
-<meta name="description" content="Tienes una subvención concedida y la obligación legal de pedir 3 presupuestos antes de gastarla. RCA (AGZ Labs) te los consigue gratis, sin coste para tu empresa.">
+<title>RCA — Radar de Compra Activa</title>
+<meta name="description" content="Tienes una subvención concedida y la obligación legal de pedir 3 presupuestos antes de gastarla. RCA te los consigue sin coste para tu empresa.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.5'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.75'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%2345d76b'/%3E%3Cpath d='M12 12 L19.5 5.5' stroke='%2345d76b' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
   :root {
@@ -249,10 +249,148 @@
     color: var(--ink-on-navy);
   }
 
+  /* ---------- about ---------- */
+
+  section.about {
+    padding: 56px 0 48px;
+    background: var(--bg);
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 32px;
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 720px) {
+    .about-grid { grid-template-columns: 1.1fr 0.9fr; }
+  }
+
+  .about h2 {
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    color: var(--navy);
+  }
+
+  .about p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+
+  .about p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about strong {
+    color: var(--ink);
+  }
+
+  .about-art {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 16px;
+  }
+
+  /* ---------- compare ---------- */
+
+  section.compare {
+    padding: 8px 0 56px;
+    background: var(--bg);
+  }
+
+  .compare-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .compare-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .compare-card {
+    border-radius: 18px;
+    padding: 26px 24px;
+  }
+
+  .compare-card.against {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+  }
+
+  .compare-card.for {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    box-shadow: var(--shadow-md);
+  }
+
+  .compare-card h3 {
+    margin: 0 0 16px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .compare-card.against h3 {
+    color: var(--ink-soft);
+  }
+
+  .compare-card.for h3 {
+    color: var(--accent-bright);
+  }
+
+  .compare-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .compare-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+  }
+
+  .compare-card.against li {
+    color: var(--ink-soft);
+  }
+
+  .compare-card.for li {
+    color: #fff;
+  }
+
+  .compare-card li svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .compare-card.against li svg {
+    color: #b6bfce;
+  }
+
+  .compare-card.for li svg {
+    color: var(--accent-bright);
+  }
+
+  .about-art svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   /* ---------- steps ---------- */
 
   section.steps {
-    padding: 56px 0 48px;
+    padding: 48px 0 48px;
     background: var(--bg-soft);
   }
 
@@ -265,6 +403,7 @@
   }
 
   .step-grid {
+    position: relative;
     display: grid;
     gap: 16px;
     grid-template-columns: 1fr;
@@ -272,11 +411,28 @@
 
   @media (min-width: 640px) {
     .step-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .step-grid::before {
+      content: "";
+      position: absolute;
+      top: 44px;
+      left: 16%;
+      right: 16%;
+      height: 0;
+      border-top: 2px dashed var(--border);
+      z-index: 0;
+    }
+
+    .step-card {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   .step-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
+    border-top: 3px solid var(--accent-bright);
     border-radius: 16px;
     padding: 24px 20px;
     text-align: left;
@@ -296,7 +452,7 @@
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background: var(--accent-soft);
+    background: linear-gradient(150deg, var(--accent-soft) 0%, #d3f0da 100%);
     color: var(--accent);
     margin-bottom: 14px;
   }
@@ -498,23 +654,145 @@
             <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"></circle>
           </svg>
         </span>
-        AGZ Labs <span class="dot">·</span> <span class="sub">RCA</span>
+        RCA <span class="dot">·</span> <span class="sub">Radar de Compra Activa</span>
       </span>
-      <a class="btn btn-sm" href="#formulario">Pedir presupuestos</a>
+      <a class="btn btn-sm" href="#formulario">Solicitar presupuestos</a>
     </div>
   </nav>
 
   <header class="hero">
     <div class="wrap">
       <span class="badge"><span class="pulse-dot" aria-hidden="true"></span>RCA · Obligación legal Art. 31.3 Ley 38/2003</span>
-      <h1>Tienes una subvención concedida y la obligación legal de pedir <span class="accent-word">3 presupuestos</span> antes de gastarla. Te los conseguimos gratis.</h1>
-      <p class="subtitle">Cuéntanos en 1 minuto qué necesitas comprar y te enviamos 2-3 presupuestos reales de proveedores, listos para justificar tu subvención.</p>
+      <h1>Tienes una subvención concedida y la obligación legal de pedir <span class="accent-word">3 presupuestos</span> antes de gastarla. Te los conseguimos sin coste.</h1>
+      <p class="subtitle">Cuéntanos en 1 minuto qué necesitas comprar y activamos nuestra red de proveedores para traerte 2-3 propuestas reales y comparables. Consigues la mejor opción y, de paso, cumples con tu subvención.</p>
       <div class="cta-inline">
-        <a class="btn" href="#formulario">Pedir mis presupuestos gratis</a>
-        <span class="reassurance">Gratis para tu empresa, siempre · Sin compromiso</span>
+        <a class="btn" href="#formulario">Solicitar mis 3 presupuestos</a>
+        <span class="reassurance">Sin coste para tu empresa, siempre · Sin compromiso</span>
       </div>
     </div>
   </header>
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>¿Qué es RCA?</h2>
+        <p>
+          RCA activa nuestra red de proveedores para conseguirte <strong>las
+          mejores propuestas</strong> para lo que tu empresa necesita comprar:
+          maquinaria, vehículos, digitalización, eficiencia energética y mucho
+          más. Nos cuentas qué buscas, movemos los hilos, y en pocos días
+          tienes 2-3 presupuestos reales sobre la mesa para comparar y
+          elegir — sin coste ni compromiso por tu parte.
+        </p>
+        <p>
+          Y si tienes una subvención concedida, mejor que mejor: estos
+          presupuestos te sirven directamente para cumplir con la obligación
+          legal de compararlos antes de contratar. Somos un
+          <strong>servicio independiente</strong> — no un organismo público —
+          así que tú decides siempre con quién contratas.
+        </p>
+      </div>
+      <div class="about-art">
+        <svg viewBox="0 0 460 320" role="img" aria-label="RCA detecta proveedores reales en distintas categorías de compra">
+          <circle cx="230" cy="160" r="66" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 5" opacity="0.35"></circle>
+          <circle cx="230" cy="160" r="48" fill="none" stroke="#2f9e46" stroke-width="1.4" opacity="0.3"></circle>
+          <circle cx="230" cy="160" r="30" fill="none" stroke="#2f9e46" stroke-width="1.4" opacity="0.4"></circle>
+          <path d="M230 160 L230 94 A66 66 0 0 1 285 125 Z" fill="#45d76b" opacity="0.16"></path>
+
+          <line x1="230" y1="160" x2="230" y2="63" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+          <line x1="230" y1="160" x2="398" y2="160" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+          <line x1="230" y1="160" x2="230" y2="257" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+          <line x1="230" y1="160" x2="62" y2="160" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+
+          <circle cx="230" cy="160" r="12" fill="#033584"></circle>
+          <circle cx="230" cy="160" r="20" fill="none" stroke="#033584" stroke-width="1.4" opacity="0.5"></circle>
+          <text x="230" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#033584" font-family="-apple-system, Segoe UI, Roboto, sans-serif">RCA</text>
+
+          <g transform="translate(230,63)">
+            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="#eaf1fd"></circle>
+            <g stroke="#033584" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="0" cy="0" r="3.2"></circle>
+              <path d="M0 -8.4v2.4M0 6v2.4M-8.4 0h2.4M6 0h2.4M-5.9 -5.9l1.7 1.7M4.2 4.2l1.7 1.7M-5.9 5.9l1.7 -1.7M4.2 -4.2l1.7 -1.7"></path>
+            </g>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Maquinaria</text>
+          </g>
+
+          <g transform="translate(398,160)">
+            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="#eaf1fd"></circle>
+            <g stroke="#033584" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M-6 2.5h-2.5v-5H1v5"></path>
+              <path d="M1 -1.5h3.5L7 1v1.5H1z"></path>
+              <circle cx="-4.5" cy="2.5" r="1.6"></circle>
+              <circle cx="3.5" cy="2.5" r="1.6"></circle>
+            </g>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Vehículos</text>
+          </g>
+
+          <g transform="translate(230,257)">
+            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="#eaf1fd"></circle>
+            <g stroke="#033584" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="-6" y="-6" width="12" height="9" rx="1"></rect>
+              <path d="M-2.5 3v2.5h5V3"></path>
+            </g>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Digitalización</text>
+          </g>
+
+          <g transform="translate(62,160)">
+            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="#fff3e8"></circle>
+            <path d="M1 -7 -5.5 1.5h4L-2.5 8 5 -1h-4z" fill="#ff7705" stroke="none"></path>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Eficiencia</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="wrap compare-grid">
+      <div class="compare-card against">
+        <h3>SIN RCA</h3>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            Buscar proveedores uno a uno, por tu cuenta
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            Llamar, escribir y esperar respuesta de cada uno
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            Horas que no tienes, sin garantía de resultado
+          </li>
+        </ul>
+      </div>
+      <div class="compare-card for">
+        <h3>CON RCA</h3>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Activamos nuestra red de proveedores por ti
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Te traemos 2-3 propuestas reales y comparables
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Tú solo comparas y eliges — sin coste ni compromiso
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <section class="steps">
     <div class="wrap">
@@ -525,21 +803,21 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
           </div>
           <p class="step-label">Paso 1</p>
-          <p class="step-text">Nos dices qué necesitas (formulario de 1 minuto).</p>
+          <p class="step-text">Nos cuentas qué necesitas comprar — dos minutos, sin compromiso.</p>
         </div>
         <div class="step-card">
           <div class="step-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </div>
           <p class="step-label">Paso 2</p>
-          <p class="step-text">Buscamos proveedores reales y te traemos sus presupuestos.</p>
+          <p class="step-text">Activamos nuestra red y buscamos las mejores propuestas reales para ti.</p>
         </div>
         <div class="step-card">
           <div class="step-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           </div>
           <p class="step-label">Paso 3</p>
-          <p class="step-text">Tú eliges y contratas directamente con quien quieras — no cobramos nada a ti, solo al proveedor si le compras.</p>
+          <p class="step-text">Eliges con quién contratar. Sin coste ni compromiso por tu parte.</p>
         </div>
       </div>
     </div>
@@ -570,7 +848,7 @@
 
   <footer>
     <div class="wrap">
-      <p class="footer-brand">AGZ Labs <span class="sep">·</span> RCA (Radar de Compra Activa)</p>
+      <p class="footer-brand">RCA <span class="sep">·</span> Radar de Compra Activa</p>
       <p class="legal">
         Tus datos se usan únicamente para contactar con proveedores que tú apruebes.
         No se ceden a terceros sin tu consentimiento. Dudas o para ejercer tus derechos:
