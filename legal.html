@@ -7,16 +7,23 @@
 <meta name="description" content="Aviso legal, política de privacidad y política de cookies de RCA (Radar de Compra Activa), un proyecto de AGZ Labs.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.5'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.75'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%2345d76b'/%3E%3Cpath d='M12 12 L19.5 5.5' stroke='%2345d76b' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#060913">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --ink: #0b1220;
-    --ink-soft: #51617a;
-    --accent: #2f9e46;
-    --accent-dark: #033584;
-    --accent-soft: #eaf1fd;
-    --card-bg: #ffffff;
-    --border: #dbe6fb;
+    --bg: #060913;
+    --panel: #0c0f19;
+    --border: rgba(133, 139, 152, 0.2);
+    --border-hover: rgba(133, 139, 152, 0.4);
+    --border-solid: #23262d;
+    --text: #f2f6fa;
+    --text-secondary: #bfc1c9;
+    --text-muted: #858b98;
+    --grad-from: #3f74ff;
+    --grad-to: #34e07a;
+    --gradient: linear-gradient(83deg, var(--grad-from) 0%, var(--grad-to) 100%);
     --max-width: 760px;
   }
 
@@ -26,9 +33,11 @@
     margin: 0;
     padding: 0;
     background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-secondary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
   .wrap {
@@ -38,19 +47,29 @@
   }
 
   a.back {
-    color: var(--accent);
+    color: var(--grad-to);
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
   }
 
+  a.back:hover {
+    text-decoration: underline;
+  }
+
+  h1, h2, h3 {
+    font-family: "Space Grotesk", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+  }
+
   h1 {
     font-size: 28px;
+    font-weight: 700;
     margin: 20px 0 8px;
   }
 
   .updated {
-    color: var(--ink-soft);
+    color: var(--text-muted);
     font-size: 13px;
     margin: 0 0 32px;
   }
@@ -63,13 +82,19 @@
   }
 
   nav.toc a {
-    background: var(--accent-soft);
-    color: var(--accent-dark);
+    background: var(--panel);
+    color: var(--text);
     text-decoration: none;
     font-size: 13px;
     font-weight: 600;
     padding: 8px 14px;
     border-radius: 999px;
+    border: 1px solid var(--border);
+    transition: border-color 0.15s ease;
+  }
+
+  nav.toc a:hover {
+    border-color: var(--border-hover);
   }
 
   section {
@@ -79,6 +104,7 @@
 
   h2 {
     font-size: 21px;
+    font-weight: 600;
     border-bottom: 1px solid var(--border);
     padding-bottom: 10px;
     margin-bottom: 16px;
@@ -86,20 +112,26 @@
 
   h3 {
     font-size: 16px;
+    font-weight: 600;
     margin: 24px 0 8px;
   }
 
   p, li {
     font-size: 15px;
-    color: var(--ink);
+    color: var(--text-secondary);
   }
 
   .soft {
-    color: var(--ink-soft);
+    color: var(--text-muted);
+  }
+
+  strong {
+    color: var(--text);
+    font-weight: 500;
   }
 
   a {
-    color: var(--accent);
+    color: var(--grad-to);
   }
 
   ul {
@@ -121,12 +153,19 @@
   }
 
   th {
-    background: var(--accent-soft);
-    color: var(--accent-dark);
+    background: var(--panel);
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  td {
+    background: var(--panel);
   }
 
   code {
-    background: var(--accent-soft);
+    background: var(--panel);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
     padding: 1px 6px;
     border-radius: 4px;
     font-size: 0.9em;

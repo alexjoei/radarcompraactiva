@@ -5,27 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RCA — Radar de Compra Activa</title>
 <meta name="description" content="Tienes una subvención concedida y la obligación legal de pedir 3 presupuestos antes de gastarla. RCA te los consigue sin coste para tu empresa.">
+<meta name="theme-color" content="#060913">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.5'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.75'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%2345d76b'/%3E%3Cpath d='M12 12 L19.5 5.5' stroke='%2345d76b' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #033584;
-    --navy-2: #0050ab;
-    --bg: #ffffff;
-    --bg-soft: #eaf1fd;
-    --ink: #0b1220;
-    --ink-soft: #51617a;
-    --ink-on-navy: #cfe0f7;
-    --accent: #2f9e46;
-    --accent-bright: #45d76b;
-    --accent-soft: #e3f7e8;
-    --cta: #ff7705;
-    --cta-dark: #e56600;
-    --card-bg: #ffffff;
-    --border: #dbe6fb;
-    --shadow-sm: 0 1px 2px rgba(3, 53, 132, 0.05);
-    --shadow-md: 0 8px 24px rgba(3, 53, 132, 0.08);
-    --shadow-lg: 0 16px 36px rgba(255, 119, 5, 0.28);
-    --max-width: 760px;
+    --bg: #060913;
+    --panel: #0c0f19;
+    --panel-2: #0a0d16;
+    --border: rgba(133, 139, 152, 0.2);
+    --border-hover: rgba(133, 139, 152, 0.4);
+    --border-solid: #23262d;
+    --text: #f2f6fa;
+    --text-secondary: #bfc1c9;
+    --text-muted: #858b98;
+    --grad-from: #3f74ff;
+    --grad-to: #34e07a;
+    --gradient: linear-gradient(83deg, var(--grad-from) 0%, var(--grad-to) 100%);
+    --orange: #ff8a2b;
+    --shadow-glow: 0 0 0 1px rgba(63, 116, 255, 0.12), 0 12px 40px rgba(63, 116, 255, 0.16);
+    --max-width: 1120px;
+    --max-width-narrow: 680px;
   }
 
   * { box-sizing: border-box; }
@@ -36,16 +38,31 @@
     margin: 0;
     padding: 0;
     background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.55;
+    color: var(--text-secondary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Space Grotesk", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    margin: 0;
   }
 
   .wrap {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
+  }
+
+  .grad-text {
+    background-image: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
   /* ---------- nav ---------- */
@@ -54,45 +71,83 @@
     position: sticky;
     top: 0;
     z-index: 20;
-    background: var(--navy);
+    background: rgba(6, 9, 19, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 20px;
+    padding: 14px 24px;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 15px;
-    color: #fff;
+    color: var(--text);
   }
 
   .radar-mark {
     display: inline-flex;
-    color: var(--accent-bright);
+    color: var(--grad-to);
     flex-shrink: 0;
   }
 
   .nav-brand .dot {
-    color: var(--accent-bright);
+    color: var(--text-muted);
   }
 
   .nav-brand .sub {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 12px;
-    color: var(--ink-on-navy);
+    color: var(--text-muted);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--gradient);
+    color: #05070d;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 999px;
+    font-size: 16px;
+    box-shadow: var(--shadow-glow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-solid);
+    box-shadow: none;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--border-hover);
+    transform: none;
+    filter: none;
   }
 
   .btn-sm {
-    padding: 9px 16px;
+    padding: 9px 20px;
     font-size: 14px;
-    border-radius: 8px;
     box-shadow: none;
   }
 
@@ -104,68 +159,70 @@
 
   header.hero {
     position: relative;
-    padding: 64px 0 60px;
-    text-align: center;
+    padding: 88px 0 72px;
     overflow: hidden;
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
-    color: #fff;
+    text-align: center;
   }
 
-  header.hero::before,
-  header.hero::after {
-    content: "";
+  header.hero .glow {
     position: absolute;
-    width: 700px;
-    height: 700px;
-    top: -360px;
-    left: 50%;
-    border-radius: 50%;
     z-index: 0;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  header.hero .glow.g1 {
+    width: 480px;
+    height: 480px;
+    background: var(--grad-from);
+    top: -220px;
+    left: 50%;
+    transform: translateX(-80%);
+  }
+
+  header.hero .glow.g2 {
+    width: 420px;
+    height: 420px;
+    background: var(--grad-to);
+    top: -160px;
+    left: 50%;
+    transform: translateX(10%);
+    opacity: 0.28;
   }
 
   header.hero::before {
-    transform: translateX(-50%);
-    background: repeating-radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.09) 0 1.5px,
-      transparent 1.5px 110px
-    );
-  }
-
-  header.hero::after {
-    transform: translateX(-50%) rotate(0deg);
-    background: conic-gradient(from 0deg, rgba(69, 215, 107, 0.35), transparent 30%);
-    -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 100%);
-    mask-image: radial-gradient(circle, #000 55%, transparent 100%);
-    animation: radar-spin 7s linear infinite;
-  }
-
-  @keyframes radar-spin {
-    from { transform: translateX(-50%) rotate(0deg); }
-    to { transform: translateX(-50%) rotate(360deg); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    header.hero::after { animation: none; }
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: radial-gradient(rgba(242, 246, 250, 0.09) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 0%, #000 0%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 55% at 50% 0%, #000 0%, transparent 100%);
   }
 
   header.hero .wrap {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: var(--panel);
+    color: var(--text);
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     padding: 7px 16px;
     border-radius: 999px;
-    margin-bottom: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-bottom: 26px;
+    border: 1px solid var(--border);
   }
 
   .pulse-dot {
@@ -173,7 +230,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--accent-bright);
+    background: var(--grad-to);
     flex-shrink: 0;
   }
 
@@ -182,7 +239,7 @@
     position: absolute;
     inset: -5px;
     border-radius: 50%;
-    border: 1.5px solid var(--accent-bright);
+    border: 1.5px solid var(--grad-to);
     animation: pulse-ring 2s ease-out infinite;
   }
 
@@ -196,88 +253,74 @@
   }
 
   h1 {
-    font-size: clamp(30px, 5vw, 44px);
-    line-height: 1.18;
-    margin: 0 0 18px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: #fff;
-  }
-
-  h1 .accent-word {
-    color: var(--accent-bright);
+    font-size: clamp(30px, 4.6vw, 48px);
+    line-height: 1.14;
+    font-weight: 700;
+    max-width: 18ch;
+    margin: 0 auto 20px;
   }
 
   .subtitle {
     font-size: 18px;
-    color: var(--ink-on-navy);
+    color: var(--text-muted);
     margin: 0 auto;
     max-width: 540px;
   }
 
   .cta-inline {
-    margin-top: 32px;
+    margin-top: 34px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
   }
 
-  .btn {
-    display: inline-block;
-    background: var(--cta);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 15px 32px;
-    border-radius: 10px;
-    font-size: 16px;
-    box-shadow: var(--shadow-lg);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn:hover {
-    background: var(--cta-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(255, 119, 5, 0.32);
-  }
-
-  .reassurance {
+  .trust-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 18px;
     font-size: 13px;
-    color: var(--ink-on-navy);
+    color: var(--text-secondary);
+  }
+
+  .trust-chip svg {
+    width: 15px;
+    height: 15px;
+    color: var(--grad-to);
+    flex-shrink: 0;
   }
 
   /* ---------- about ---------- */
 
   section.about {
-    padding: 56px 0 48px;
-    background: var(--bg);
+    padding: 72px 0 64px;
   }
 
   .about-grid {
     display: grid;
-    gap: 32px;
+    gap: 36px;
     align-items: center;
     grid-template-columns: 1fr;
   }
 
-  @media (min-width: 720px) {
+  @media (min-width: 760px) {
     .about-grid { grid-template-columns: 1.1fr 0.9fr; }
   }
 
   .about h2 {
-    font-size: 24px;
-    letter-spacing: -0.01em;
-    margin: 0 0 14px;
-    color: var(--navy);
+    font-size: 28px;
+    margin: 0 0 16px;
+    font-weight: 600;
   }
 
   .about p {
-    font-size: 15px;
-    color: var(--ink-soft);
-    margin: 0 0 12px;
+    font-size: 15.5px;
+    color: var(--text-muted);
+    margin: 0 0 14px;
   }
 
   .about p:last-child {
@@ -285,26 +328,37 @@
   }
 
   .about strong {
-    color: var(--ink);
+    color: var(--text-secondary);
+    font-weight: 500;
   }
 
-  .about-art {
-    background: var(--bg-soft);
+  .card-panel {
+    background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 16px;
+    padding: 28px;
+    transition: border-color 0.15s ease;
+  }
+
+  .card-panel:hover {
+    border-color: var(--border-hover);
+  }
+
+  .about-art svg {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* ---------- compare ---------- */
 
   section.compare {
-    padding: 8px 0 56px;
-    background: var(--bg);
+    padding: 8px 0 64px;
   }
 
   .compare-grid {
     display: grid;
-    gap: 16px;
+    gap: 18px;
     grid-template-columns: 1fr;
   }
 
@@ -313,33 +367,33 @@
   }
 
   .compare-card {
-    border-radius: 18px;
-    padding: 26px 24px;
-  }
-
-  .compare-card.against {
-    background: var(--bg-soft);
+    border-radius: 20px;
+    padding: 28px 26px;
+    background: var(--panel);
     border: 1px solid var(--border);
   }
 
   .compare-card.for {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
-    box-shadow: var(--shadow-md);
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--panel), var(--panel)) padding-box,
+      var(--gradient) border-box;
   }
 
   .compare-card h3 {
     margin: 0 0 16px;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .compare-card.against h3 {
-    color: var(--ink-soft);
+    color: var(--text-muted);
   }
 
   .compare-card.for h3 {
-    color: var(--accent-bright);
+    color: var(--grad-to);
   }
 
   .compare-card ul {
@@ -356,14 +410,7 @@
     align-items: flex-start;
     gap: 10px;
     font-size: 14.5px;
-  }
-
-  .compare-card.against li {
-    color: var(--ink-soft);
-  }
-
-  .compare-card.for li {
-    color: #fff;
+    color: var(--text-secondary);
   }
 
   .compare-card li svg {
@@ -374,138 +421,117 @@
   }
 
   .compare-card.against li svg {
-    color: #b6bfce;
+    color: var(--text-muted);
   }
 
   .compare-card.for li svg {
-    color: var(--accent-bright);
-  }
-
-  .about-art svg {
-    width: 100%;
-    height: auto;
-    display: block;
+    color: var(--grad-to);
   }
 
   /* ---------- steps ---------- */
 
   section.steps {
-    padding: 48px 0 48px;
-    background: var(--bg-soft);
+    padding: 64px 0 64px;
   }
 
   .steps h2 {
     text-align: center;
-    font-size: 24px;
-    letter-spacing: -0.01em;
-    margin-bottom: 32px;
-    color: var(--navy);
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 600;
   }
 
   .step-grid {
-    position: relative;
     display: grid;
-    gap: 16px;
+    gap: 20px;
     grid-template-columns: 1fr;
   }
 
   @media (min-width: 640px) {
     .step-grid { grid-template-columns: repeat(3, 1fr); }
-
-    .step-grid::before {
-      content: "";
-      position: absolute;
-      top: 44px;
-      left: 16%;
-      right: 16%;
-      height: 0;
-      border-top: 2px dashed var(--border);
-      z-index: 0;
-    }
-
-    .step-card {
-      position: relative;
-      z-index: 1;
-    }
   }
 
   .step-card {
-    background: var(--card-bg);
+    background: var(--panel);
     border: 1px solid var(--border);
-    border-top: 3px solid var(--accent-bright);
-    border-radius: 16px;
-    padding: 24px 20px;
+    border-radius: 18px;
+    padding: 26px 22px;
     text-align: left;
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
+    transition: border-color 0.15s ease, transform 0.15s ease;
   }
 
   .step-card:hover {
-    box-shadow: var(--shadow-md);
+    border-color: var(--border-hover);
     transform: translateY(-2px);
   }
 
-  .step-icon {
+  .step-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: linear-gradient(150deg, var(--accent-soft) 0%, #d3f0da 100%);
-    color: var(--accent);
-    margin-bottom: 14px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    margin-bottom: 16px;
   }
 
-  .step-icon svg {
-    width: 20px;
-    height: 20px;
+  .step-badge.b1 { background: rgba(63, 116, 255, 0.14); color: #6f95ff; }
+  .step-badge.b2 { background: rgba(255, 138, 43, 0.14); color: var(--orange); }
+  .step-badge.b3 { background: rgba(52, 224, 122, 0.14); color: var(--grad-to); }
+
+  .step-badge svg {
+    width: 22px;
+    height: 22px;
   }
 
   .step-card .step-label {
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: var(--cta);
-    margin: 0 0 6px;
+    color: var(--text-muted);
+    margin: 0 0 8px;
   }
 
   .step-card p.step-text {
     margin: 0;
     font-size: 15px;
-    color: var(--ink);
+    color: var(--text-secondary);
   }
 
   /* ---------- form ---------- */
 
   section.form-section {
-    padding: 48px 0 64px;
-    background: var(--bg);
+    padding: 64px 0 76px;
   }
 
   .form-section h2 {
     text-align: center;
-    font-size: 24px;
-    letter-spacing: -0.01em;
+    font-size: 28px;
     margin-bottom: 8px;
-    color: var(--navy);
+    font-weight: 600;
   }
 
   .form-section .lede {
     text-align: center;
-    color: var(--ink-soft);
+    color: var(--text-muted);
     font-size: 15px;
-    margin: 0 0 24px;
+    margin: 0 auto 28px;
+    max-width: var(--max-width-narrow);
   }
 
   .form-embed {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
+    max-width: var(--max-width-narrow);
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 24px;
     overflow: hidden;
     min-height: 400px;
-    box-shadow: var(--shadow-md);
+    border: 1px solid transparent;
+    background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      var(--gradient) border-box;
+    box-shadow: 0 20px 60px rgba(63, 116, 255, 0.14);
   }
 
   .form-embed iframe {
@@ -521,34 +547,35 @@
   }
 
   .form-gate p {
-    color: var(--ink-soft);
+    color: #57668a;
     font-size: 14px;
     max-width: 480px;
     margin: 0 auto 20px;
   }
 
   .form-gate a {
-    color: var(--accent);
+    color: #1f8a44;
   }
 
   /* ---------- footer ---------- */
 
   footer {
-    background: var(--navy);
-    color: var(--ink-on-navy);
+    background: var(--panel-2);
+    color: var(--text-muted);
     padding: 36px 0 40px;
+    border-top: 1px solid var(--border);
   }
 
   .footer-brand {
     text-align: center;
     font-size: 13px;
-    font-weight: 700;
-    color: #fff;
+    font-weight: 600;
+    color: var(--text);
     margin: 0 0 10px;
   }
 
   .footer-brand .sep {
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--border-solid);
     margin: 0 6px;
   }
 
@@ -560,7 +587,7 @@
   }
 
   .legal a {
-    color: var(--accent-bright);
+    color: var(--grad-to);
   }
 
   /* ---------- cookie banner ---------- */
@@ -573,10 +600,11 @@
     z-index: 50;
     max-width: 640px;
     margin: 0 auto;
-    background: #ffffff;
-    color: var(--ink);
-    border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(3, 53, 132, 0.28);
+    background: var(--panel);
+    color: var(--text-secondary);
+    border-radius: 20px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border);
     padding: 20px 22px;
     display: none;
   }
@@ -587,13 +615,13 @@
 
   #cookieBanner p {
     font-size: 13px;
-    color: var(--ink-soft);
+    color: var(--text-muted);
     margin: 0 0 14px;
   }
 
   #cookieBanner a {
-    color: var(--accent);
-    font-weight: 600;
+    color: var(--grad-to);
+    font-weight: 500;
   }
 
   .cookie-actions {
@@ -605,37 +633,38 @@
   .cookie-actions button {
     flex: 1 1 auto;
     padding: 10px 16px;
-    border-radius: 8px;
+    border-radius: 999px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     border: none;
+    font-family: inherit;
   }
 
   #cookieAccept {
-    background: var(--cta);
-    color: #fff;
+    background: var(--gradient);
+    color: #05070d;
   }
 
   #cookieAccept:hover {
-    background: var(--cta-dark);
+    filter: brightness(1.08);
   }
 
   #cookieReject {
-    background: var(--bg-soft);
-    color: var(--navy);
-    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-solid);
   }
 
   #cookieReject:hover {
-    background: #dbe6fb;
+    border-color: var(--border-hover);
   }
 
   .cookie-prefs-link {
     background: none;
     border: none;
     padding: 0;
-    color: var(--accent-bright);
+    color: var(--grad-to);
     text-decoration: underline;
     cursor: pointer;
     font: inherit;
@@ -661,13 +690,18 @@
   </nav>
 
   <header class="hero">
+    <div class="glow g1" aria-hidden="true"></div>
+    <div class="glow g2" aria-hidden="true"></div>
     <div class="wrap">
       <span class="badge"><span class="pulse-dot" aria-hidden="true"></span>RCA · Obligación legal Art. 31.3 Ley 38/2003</span>
-      <h1>Tienes una subvención concedida y la obligación legal de pedir <span class="accent-word">3 presupuestos</span> antes de gastarla. Te los conseguimos sin coste.</h1>
+      <h1>Tienes una subvención concedida y la obligación legal de pedir <span class="grad-text">3 presupuestos</span> antes de gastarla. Te los conseguimos sin coste.</h1>
       <p class="subtitle">Cuéntanos en 1 minuto qué necesitas comprar y activamos nuestra red de proveedores para traerte 2-3 propuestas reales y comparables. Consigues la mejor opción y, de paso, cumples con tu subvención.</p>
       <div class="cta-inline">
         <a class="btn" href="#formulario">Solicitar mis 3 presupuestos</a>
-        <span class="reassurance">Sin coste para tu empresa, siempre · Sin compromiso</span>
+        <span class="trust-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          Sin coste para tu empresa, siempre · Sin compromiso
+        </span>
       </div>
     </div>
   </header>
@@ -692,63 +726,63 @@
           así que tú decides siempre con quién contratas.
         </p>
       </div>
-      <div class="about-art">
+      <div class="about-art card-panel">
         <svg viewBox="0 0 460 320" role="img" aria-label="RCA detecta proveedores reales en distintas categorías de compra">
-          <circle cx="230" cy="160" r="66" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 5" opacity="0.35"></circle>
-          <circle cx="230" cy="160" r="48" fill="none" stroke="#2f9e46" stroke-width="1.4" opacity="0.3"></circle>
-          <circle cx="230" cy="160" r="30" fill="none" stroke="#2f9e46" stroke-width="1.4" opacity="0.4"></circle>
-          <path d="M230 160 L230 94 A66 66 0 0 1 285 125 Z" fill="#45d76b" opacity="0.16"></path>
+          <circle cx="230" cy="160" r="66" fill="none" stroke="#34e07a" stroke-width="1.4" stroke-dasharray="3 5" opacity="0.35"></circle>
+          <circle cx="230" cy="160" r="48" fill="none" stroke="#34e07a" stroke-width="1.4" opacity="0.3"></circle>
+          <circle cx="230" cy="160" r="30" fill="none" stroke="#34e07a" stroke-width="1.4" opacity="0.4"></circle>
+          <path d="M230 160 L230 94 A66 66 0 0 1 285 125 Z" fill="#34e07a" opacity="0.14"></path>
 
-          <line x1="230" y1="160" x2="230" y2="63" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
-          <line x1="230" y1="160" x2="398" y2="160" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
-          <line x1="230" y1="160" x2="230" y2="257" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
-          <line x1="230" y1="160" x2="62" y2="160" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+          <line x1="230" y1="160" x2="230" y2="63" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+          <line x1="230" y1="160" x2="398" y2="160" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+          <line x1="230" y1="160" x2="230" y2="257" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
+          <line x1="230" y1="160" x2="62" y2="160" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"></line>
 
-          <circle cx="230" cy="160" r="12" fill="#033584"></circle>
-          <circle cx="230" cy="160" r="20" fill="none" stroke="#033584" stroke-width="1.4" opacity="0.5"></circle>
-          <text x="230" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#033584" font-family="-apple-system, Segoe UI, Roboto, sans-serif">RCA</text>
+          <circle cx="230" cy="160" r="12" fill="#f2f6fa"></circle>
+          <circle cx="230" cy="160" r="20" fill="none" stroke="#f2f6fa" stroke-width="1.4" opacity="0.5"></circle>
+          <text x="230" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#f2f6fa" font-family="Space Grotesk, -apple-system, Segoe UI, Roboto, sans-serif">RCA</text>
 
           <g transform="translate(230,63)">
-            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
-            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
-            <circle r="9" fill="#eaf1fd"></circle>
-            <g stroke="#033584" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle r="27" fill="#0c0f19" stroke="#23262d" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="rgba(63,116,255,0.14)"></circle>
+            <g stroke="#bfc1c9" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="0" cy="0" r="3.2"></circle>
               <path d="M0 -8.4v2.4M0 6v2.4M-8.4 0h2.4M6 0h2.4M-5.9 -5.9l1.7 1.7M4.2 4.2l1.7 1.7M-5.9 5.9l1.7 -1.7M4.2 -4.2l1.7 -1.7"></path>
             </g>
-            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Maquinaria</text>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#858b98" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif">Maquinaria</text>
           </g>
 
           <g transform="translate(398,160)">
-            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
-            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
-            <circle r="9" fill="#eaf1fd"></circle>
-            <g stroke="#033584" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle r="27" fill="#0c0f19" stroke="#23262d" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="rgba(63,116,255,0.14)"></circle>
+            <g stroke="#bfc1c9" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M-6 2.5h-2.5v-5H1v5"></path>
               <path d="M1 -1.5h3.5L7 1v1.5H1z"></path>
               <circle cx="-4.5" cy="2.5" r="1.6"></circle>
               <circle cx="3.5" cy="2.5" r="1.6"></circle>
             </g>
-            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Vehículos</text>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#858b98" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif">Vehículos</text>
           </g>
 
           <g transform="translate(230,257)">
-            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
-            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
-            <circle r="9" fill="#eaf1fd"></circle>
-            <g stroke="#033584" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle r="27" fill="#0c0f19" stroke="#23262d" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="rgba(63,116,255,0.14)"></circle>
+            <g stroke="#bfc1c9" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <rect x="-6" y="-6" width="12" height="9" rx="1"></rect>
               <path d="M-2.5 3v2.5h5V3"></path>
             </g>
-            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Digitalización</text>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#858b98" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif">Digitalización</text>
           </g>
 
           <g transform="translate(62,160)">
-            <circle r="27" fill="#ffffff" stroke="#dbe6fb" stroke-width="1.5"></circle>
-            <circle r="27" fill="none" stroke="#2f9e46" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
-            <circle r="9" fill="#fff3e8"></circle>
-            <path d="M1 -7 -5.5 1.5h4L-2.5 8 5 -1h-4z" fill="#ff7705" stroke="none"></path>
-            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#51617a" font-family="-apple-system, Segoe UI, Roboto, sans-serif">Eficiencia</text>
+            <circle r="27" fill="#0c0f19" stroke="#23262d" stroke-width="1.5"></circle>
+            <circle r="27" fill="none" stroke="#3f74ff" stroke-width="1.4" stroke-dasharray="2 4" opacity="0.55"></circle>
+            <circle r="9" fill="rgba(255,138,43,0.16)"></circle>
+            <path d="M1 -7 -5.5 1.5h4L-2.5 8 5 -1h-4z" fill="#ff8a2b" stroke="none"></path>
+            <text x="0" y="42" text-anchor="middle" font-size="11" fill="#858b98" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif">Eficiencia</text>
           </g>
         </svg>
       </div>
@@ -796,24 +830,24 @@
 
   <section class="steps">
     <div class="wrap">
-      <h2>Cómo funciona</h2>
+      <h2>Cómo <span class="grad-text">funciona</span></h2>
       <div class="step-grid">
         <div class="step-card">
-          <div class="step-icon">
+          <div class="step-badge b1">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
           </div>
           <p class="step-label">Paso 1</p>
           <p class="step-text">Nos cuentas qué necesitas comprar — dos minutos, sin compromiso.</p>
         </div>
         <div class="step-card">
-          <div class="step-icon">
+          <div class="step-badge b2">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </div>
           <p class="step-label">Paso 2</p>
           <p class="step-text">Activamos nuestra red y buscamos las mejores propuestas reales para ti.</p>
         </div>
         <div class="step-card">
-          <div class="step-icon">
+          <div class="step-badge b3">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           </div>
           <p class="step-label">Paso 3</p>
@@ -825,7 +859,7 @@
 
   <section class="form-section" id="formulario">
     <div class="wrap">
-      <h2>Cuéntanos qué necesitas</h2>
+      <h2>Cuéntanos qué <span class="grad-text">necesitas</span></h2>
       <p class="lede">Tarda menos de 1 minuto. Sin compromiso.</p>
 
       <div class="form-embed" id="formEmbed">
@@ -840,7 +874,7 @@
             Más información en nuestra
             <a href="legal.html#cookies">política de cookies</a>.
           </p>
-          <button type="button" class="btn btn-sm" id="loadFormBtn">Cargar formulario ahora</button>
+          <button type="button" class="btn btn-sm" id="loadFormBtn" style="color:#05070d;">Cargar formulario ahora</button>
         </div>
       </div>
     </div>
@@ -903,7 +937,7 @@
         if (formLoaded) return;
         formLoaded = true;
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLScYNzmY1GOkRD1pZwUUTqT7wR6wx9pDdiyE72Ywt2xRZAa66Q/viewform?embedded=true';
+        iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeDgIx_2TKNJnR8y-TtTmEiremJC-76zINEi3XrEoMAEfciKA/viewform?embedded=true';
         iframe.title = 'Formulario RCA';
         formEmbed.innerHTML = '';
         formEmbed.appendChild(iframe);
