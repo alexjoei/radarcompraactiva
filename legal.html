@@ -6,25 +6,22 @@
 <title>Aviso legal, privacidad y cookies | RCA — AGZ Labs</title>
 <meta name="description" content="Aviso legal, política de privacidad y política de cookies de RCA (Radar de Compra Activa), un proyecto de AGZ Labs.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.5'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%2345d76b' stroke-width='1.6' opacity='0.75'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%2345d76b'/%3E%3Cpath d='M12 12 L19.5 5.5' stroke='%2345d76b' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#060913">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%2334e07a' stroke-width='1.6' opacity='0.5'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%2334e07a' stroke-width='1.6' opacity='0.75'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%2334e07a'/%3E%3Cpath d='M12 12 L19.5 5.5' stroke='%2334e07a' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #060913;
-    --panel: #0c0f19;
-    --border: rgba(133, 139, 152, 0.2);
-    --border-hover: rgba(133, 139, 152, 0.4);
-    --border-solid: #23262d;
-    --text: #f2f6fa;
-    --text-secondary: #bfc1c9;
-    --text-muted: #858b98;
-    --grad-from: #3f74ff;
-    --grad-to: #34e07a;
-    --gradient: linear-gradient(83deg, var(--grad-from) 0%, var(--grad-to) 100%);
-    --max-width: 760px;
+    --bg: #ffffff;
+    --panel: #ffffff;
+    --panel-alt: #f6f7fb;
+    --border: rgba(16, 18, 26, 0.1);
+    --border-hover: rgba(16, 18, 26, 0.22);
+    --text: #10121a;
+    --text-secondary: #4b4f5b;
+    --text-muted: #82869a;
+    --max-width-narrow: 680px;
   }
 
   * { box-sizing: border-box; }
@@ -35,149 +32,58 @@
     background: var(--bg);
     color: var(--text-secondary);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  .wrap {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-  }
+  .legal-page { max-width: var(--max-width-narrow); margin: 0 auto; padding: 40px 20px 80px; }
 
-  a.back {
-    color: var(--grad-to);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  a.back:hover {
-    text-decoration: underline;
-  }
+  a.back { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 600; }
+  a.back:hover { text-decoration: underline; }
 
   h1, h2, h3 {
     font-family: "Space Grotesk", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text);
   }
 
-  h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin: 20px 0 8px;
-  }
+  .legal-page h1 { font-size: 28px; font-weight: 700; margin: 20px 0 8px; }
+  .updated { color: var(--text-muted); font-size: 13px; margin: 0 0 32px; }
 
-  .updated {
-    color: var(--text-muted);
-    font-size: 13px;
-    margin: 0 0 32px;
-  }
-
-  nav.toc {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
-
+  nav.toc { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
   nav.toc a {
-    background: var(--panel);
-    color: var(--text);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    transition: border-color 0.15s ease;
+    background: var(--panel-alt); color: var(--text); text-decoration: none;
+    font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--border); transition: border-color 0.15s ease;
   }
+  nav.toc a:hover { border-color: var(--border-hover); }
 
-  nav.toc a:hover {
-    border-color: var(--border-hover);
-  }
+  section { margin-bottom: 48px; scroll-margin-top: 24px; }
+  h2 { font-size: 21px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 16px; }
+  h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; }
+  p, li { font-size: 15px; color: var(--text-secondary); }
+  .soft { color: var(--text-muted); }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--text); text-decoration: underline; }
+  ul { padding-left: 20px; }
 
-  section {
-    margin-bottom: 48px;
-    scroll-margin-top: 24px;
-  }
-
-  h2 {
-    font-size: 21px;
-    font-weight: 600;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 10px;
-    margin-bottom: 16px;
-  }
-
-  h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 24px 0 8px;
-  }
-
-  p, li {
-    font-size: 15px;
-    color: var(--text-secondary);
-  }
-
-  .soft {
-    color: var(--text-muted);
-  }
-
-  strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  a {
-    color: var(--grad-to);
-  }
-
-  ul {
-    padding-left: 20px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0;
-    font-size: 14px;
-  }
-
-  th, td {
-    text-align: left;
-    padding: 8px 10px;
-    border: 1px solid var(--border);
-    vertical-align: top;
-  }
-
-  th {
-    background: var(--panel);
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  td {
-    background: var(--panel);
-  }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--panel-alt); color: var(--text); font-weight: 600; }
+  td { background: var(--panel); }
 
   code {
-    background: var(--panel);
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-size: 0.9em;
+    background: var(--panel-alt); color: var(--text-secondary); border: 1px solid var(--border);
+    padding: 1px 6px; border-radius: 4px; font-size: 0.9em;
   }
 </style>
 </head>
 <body>
 
-  <div class="wrap">
+  <div class="legal-page">
     <a class="back" href="index.html#formulario">&larr; Volver a RCA</a>
     <h1>Aviso legal, privacidad y cookies</h1>
-    <p class="updated">Última actualización: 17 de septiembre de 2026</p>
+    <p class="updated">Última actualización: 24 de septiembre de 2026</p>
 
     <nav class="toc">
       <a href="#aviso-legal">Aviso legal</a>
@@ -197,7 +103,7 @@
       <ul>
         <li>Titular: Alejandro Gil Zazo</li>
         <li>NIF: 47485323Y</li>
-        <li>Nombre del proyecto: RCA (Radar de Compra Activa), un proyecto personal desarrollado bajo el nombre comercial AGZ Labs</li>
+        <li>Nombre del proyecto: RCA (Radar de Compra Activa), un proyecto de <a href="https://agzlabs.com/">AGZ Labs</a></li>
         <li>Domicilio a efectos de notificaciones: Móstoles, Madrid, España</li>
         <li>Correo electrónico de contacto: <a href="mailto:info@agzlabs.com">info@agzlabs.com</a></li>
         <li>Dominio: agzlabs.com</li>
